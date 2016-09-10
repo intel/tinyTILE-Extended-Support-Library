@@ -21,8 +21,8 @@
 
 void setup()
 {
-  Serial.begin(115200);  // start serial for output
-  while(Serial);
+  Serial.begin(9600);  // start serial for output
+  while(!Serial);      // Wait here till serial terminal is ready/opened
 
   I2C0.begin();        // join i2c bus
 }

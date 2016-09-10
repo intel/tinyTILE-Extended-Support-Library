@@ -29,8 +29,8 @@ static uint8_t buffer_receiver[MY_BUFFER_SIZE]; // data distination for master r
 void setup() 
 {
   I2C0.begin();         // join i2c bus 
-  Serial.begin(115200); // start serial for output
-  while (Serial)
+  Serial.begin(9600);   // start serial for output
+  while (!Serial)       // Wait here till serial terminal is ready/opened
     ;
 }
 

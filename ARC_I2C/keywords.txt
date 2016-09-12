@@ -1,0 +1,32 @@
+########################################################
+# Syntax Coloring Map For tinyTILEExtendedSupportLibrary
+########################################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+ARC_I2C  KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+begin  KEYWORD2
+end  KEYWORD2
+setSpeed  KEYWORD2
+setAddressMode  KEYWORD2
+beginTransmission  KEYWORD2
+endTransmission  KEYWORD2
+requestFrom  KEYWORD2
+write  KEYWORD2
+available  KEYWORD2
+read  KEYWORD2
+peek  KEYWORD2
+flush  KEYWORD2
+onReceive  KEYWORD2
+onRequest  KEYWORD2
+
+#######################################
+# Instances (KEYWORD2)
+#######################################
+ARC_I2C0  KEYWORD2
+ARC_I2C1  KEYWORD2

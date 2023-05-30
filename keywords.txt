@@ -5,28 +5,35 @@
 #######################################
 # Datatypes (KEYWORD1)
 #######################################
-quarkI2C  KEYWORD1
+quarkI2C     KEYWORD1
+ARC_SPI      KEYWORD1
+SPISettings  KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)
 #######################################
-begin  KEYWORD2
-end  KEYWORD2
-setSpeed  KEYWORD2
-setAddressMode  KEYWORD2
+begin              KEYWORD2
+end                KEYWORD2
+setSpeed           KEYWORD2
+setAddressMode     KEYWORD2
 beginTransmission  KEYWORD2
-endTransmission  KEYWORD2
-requestFrom  KEYWORD2
-write  KEYWORD2
-available  KEYWORD2
-read  KEYWORD2
-peek  KEYWORD2
-flush  KEYWORD2
-onReceive  KEYWORD2
-onRequest  KEYWORD2
+endTransmission    KEYWORD2
+requestFrom        KEYWORD2
+write              KEYWORD2
+available          KEYWORD2
+read               KEYWORD2
+peek               KEYWORD2
+flush              KEYWORD2
+onReceive          KEYWORD2
+onRequest          KEYWORD2
+setDataMode        KEYWORD2
+setClockDivider    KEYWORD2
+transfer           KEYWORD2
 
 #######################################
 # Instances (KEYWORD2)
 #######################################
-I2C0  KEYWORD2
-I2C1  KEYWORD2
+I2C0      KEYWORD2
+I2C1      KEYWORD2
+ARC_I2C1  KEYWORD2
+ARC_SPI0  KEYWORD2

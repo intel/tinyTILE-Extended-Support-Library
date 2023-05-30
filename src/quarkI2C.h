@@ -30,12 +30,12 @@
 #include "variant.h"
 #include "intel_qrk_i2c.h"
 
-const int BUFFER_LENGTH = 32;
+const int QUARK_I2C_BUFFER_LENGTH = 32;
 
-const int I2C_SPEED_SLOW = 1;
-const int I2C_SPEED_FAST = 2;
+const int QUARKI2C_I2C_SPEED_SLOW = 1;
+const int QUARKI2C_I2C_SPEED_FAST = 2;
+
 const int I2C_SPEED_HS = 3;
-
 const int I2C_ADDR_7Bit = 0;
 const int I2C_ADDR_10Bit = 1;
 
@@ -44,9 +44,9 @@ class quarkI2C : public Stream
   public:
     quarkI2C(SOC_I2C_CONTROLLER controller_id);
     void begin();
-    void begin(uint8_t, int i2c_speed = I2C_SPEED_FAST,
+    void begin(uint8_t, int i2c_speed = QUARKI2C_I2C_SPEED_FAST,
                int i2c_addr_mode = I2C_ADDR_7Bit);
-    void begin(int, int i2c_speed = I2C_SPEED_FAST,
+    void begin(int, int i2c_speed = QUARKI2C_I2C_SPEED_FAST,
                int i2c_addr_mode = I2C_ADDR_7Bit);    
     void end();
     void setSpeed(uint32_t);
@@ -88,12 +88,12 @@ class quarkI2C : public Stream
     using Print::write;
 
   private:
-    uint8_t rxBuffer[BUFFER_LENGTH];
+    uint8_t rxBuffer[QUARK_I2C_BUFFER_LENGTH];
     uint8_t rxBufferIndex;
     uint8_t rxBufferLength;
 
     uint8_t txAddress;
-    uint8_t txBuffer[BUFFER_LENGTH];
+    uint8_t txBuffer[QUARK_I2C_BUFFER_LENGTH];
     uint8_t txBufferLength;
 
     void (*onRequestUserCallback)(void);

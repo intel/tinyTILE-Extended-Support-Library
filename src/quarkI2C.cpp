@@ -50,7 +50,7 @@ quarkI2C::quarkI2C(SOC_I2C_CONTROLLER controller_id) : controllerId(controller_i
 
 void quarkI2C::begin(void)
 {
-    int i2c_speed = I2C_SPEED_FAST;
+    int i2c_speed = QUARKI2C_I2C_SPEED_FAST;
     int i2c_addr_mode = I2C_ADDR_7Bit;
     init_status = soc_i2c_open_adapter(controllerId, 0, i2c_speed, i2c_addr_mode);
 }
@@ -92,8 +92,8 @@ uint8_t quarkI2C::requestFrom(uint8_t address, uint8_t quantity,
                               uint8_t sendStop)
 {
     int ret;
-    if (quantity > BUFFER_LENGTH)
-        quantity = BUFFER_LENGTH;
+    if (quantity > QUARK_I2C_BUFFER_LENGTH)
+        quantity = QUARK_I2C_BUFFER_LENGTH;
 
     /* Set slave address via ioctl  */
     soc_i2c_master_set_slave_address(controllerId, address);
@@ -116,8 +116,8 @@ uint8_t quarkI2C::requestFrom(uint8_t address, uint8_t quantity)
 uint8_t quarkI2C::requestFrom(int address, int quantity, int sendStop)
 {
     int ret;
-    if (quantity > BUFFER_LENGTH)
-        quantity = BUFFER_LENGTH;
+    if (quantity > QUARK_I2C_BUFFER_LENGTH)
+        quantity = QUARK_I2C_BUFFER_LENGTH;
 
     /* Set slave address via ioctl  */
     soc_i2c_master_set_slave_address(controllerId, address);
@@ -201,7 +201,7 @@ uint8_t quarkI2C::endTransmission(void)
 
 size_t quarkI2C::write(uint8_t data)
 {
-    if (txBufferLength >= BUFFER_LENGTH)
+    if (txBufferLength >= QUARK_I2C_BUFFER_LENGTH)
         return 0;
     txBuffer[txBufferLength++] = data;
     return 1;
@@ -210,7 +210,7 @@ size_t quarkI2C::write(uint8_t data)
 size_t quarkI2C::write(const uint8_t *data, size_t quantity)
 {
     for (size_t i = 0; i < quantity; ++i) {
-        if (txBufferLength >= BUFFER_LENGTH)
+        if (txBufferLength >= QUARK_I2C_BUFFER_LENGTH)
             return i;
         txBuffer[txBufferLength++] = data[i];
     }
